@@ -191,6 +191,7 @@ if (isset($_SESSION['login'])) {
                 </nav>
                 <!-- End of Topbar -->
 
+                <form method="POST" id="form"></form>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -198,7 +199,7 @@ if (isset($_SESSION['login'])) {
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <div class="form-group d-sm-inline-block">
                             <label for="select_semester">Semester</label>
-                            <select class="custom-select" name="semester" id="select_semester">
+                            <select class="custom-select" name="semester" id="select_semester" form="form">
                                 <option value="1" selected>1</option>
                                 <option value="2">2</option>
                             </select>
@@ -215,6 +216,19 @@ if (isset($_SESSION['login'])) {
                                 <?php echo tampilkan(); ?>
                             </div>
                         </div>
+                        <button type="submit" name="print" form="form"
+                            class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-calendar-alt fa-sm text-white-50"></i> Print Rapot PAS</button>
+                        <?php 
+                        if (isset($_POST['print'])) {
+                            $kelas = $kodekelas;
+                            $semester = $_POST['semester'];
+                        ?>
+                        <meta http-equiv="refresh"
+                            content="1;url=print_pas.php?nisn=<?php echo $nisn_login; ?>&kelas=<?php echo $kelas; ?>&semester=<?php echo $semester; ?>">
+                        <?php
+                        }
+                        ?>
                     </div>
 
                 </div>

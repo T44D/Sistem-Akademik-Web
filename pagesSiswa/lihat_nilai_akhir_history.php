@@ -105,7 +105,7 @@ if (isset($_SESSION['login'])) {
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <a href="lihat_nilai_pts.php">
+                    <a href="lihat_nilai_pas.php">
                         <i class="fas fa-arrow-alt-circle-left fa-2x"></i></a>
 
                     <!-- Sidebar Toggle (Topbar) -->

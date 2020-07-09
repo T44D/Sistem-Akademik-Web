@@ -136,54 +136,6 @@ $excel->getActiveSheet()->getColumnDimension('K')->setWidth(10);
 $excel->getActiveSheet()->getColumnDimension('L')->setWidth(10);
 $excel->getActiveSheet()->getColumnDimension('M')->setWidth(10);
 
-
-// $output = '';
-// $output .= '
-// <table border="1">
-//   <tr>
-//   	<th rowspan="3">Nama Lengkap</th>
-// 	<th rowspan="3">NISN</th>
-// 	<th colspan="5">Nilai Pengetahuan</th>
-//     <th colspan="5">Nilai Keterampilan</th>
-//     <th rowspan="3">PTS</th>
-//   </tr>
-//   <tr>
-//     <th colspan="5">Capaian Nilai Harian</th>
-//     <th colspan="5">Capaian Nilai Harian</th>
-//   </tr>
-//   <tr>
-//     <th>Nilai 1</th>
-//     <th>Nilai 2</th>
-//     <th>Nilai 3</th>
-//     <th>Nilai 4</th>
-//     <th>Nilai 5</th>
-//     <th>Nilai 1</th>
-//     <th>Nilai 2</th>
-//     <th>Nilai 3</th>
-//     <th>Nilai 4</th>
-//     <th>Nilai 5</th>
-//   </tr>';
-// 	$kelas = $_GET['kelas'];
-// 	$sql = mysqli_query($conn, "SELECT * FROM siswa WHERE kode_kelas = '$kelas' ORDER BY nama_siswa ASC");
-// 	while ($data = mysqli_fetch_array($sql)) {
-// 		$output .= '
-// 		<tr>
-// 			<td>'.$data['nama_siswa'].'</td>
-// 			<td>'.$data['nisn'].'</td>
-// 			<td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		    <td> </td>
-// 		</tr>';
-// 	}
-// $output .= '</table>';
 $excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
 
 $excel->getActiveSheet(0)->setTitle('Tabel Nilai Siswa');
