@@ -27,7 +27,7 @@
     date_default_timezone_set('Asia/Jakarta');
     function cekStatus($jamMasuk, $jamKeluar){
         $status = FALSE;
-        $currentTime = (int) date('Gis');
+        $currentTime = (int) date('Gi');
         if ($currentTime >= $jamMasuk && $currentTime <= $jamKeluar ) {
             $status = TRUE;
         } else {

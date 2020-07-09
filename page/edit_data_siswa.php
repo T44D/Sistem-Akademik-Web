@@ -385,7 +385,7 @@ if (isset($_SESSION['login'])) {
               $kelas_siswa = antiinjection($_POST['kelas_siswa']);
               $tanggal = date("d-m-Y", strtotime($tanggal_lahir));
  
-              $update = mysqli_query($conn, "UPDATE siswa SET nama_siswa = '$nama_siswa', nis = '$nis', jenis_kelamin_siswa = '$gender', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal', alamat_siswa = '$alamat_siswa', nama_ayah = '$nama_ayah', nama_ibu = '$nama_ibu', pekerjaan_ayah = '$pekerjaan_ayah', pekerjaan_ibu = '$pekerjaan_ibu', jalan = '$jalan', kelurahan = '$kelurahan', kecamatan = '$kecamatan', kabupaten = '$kabupaten', provinsi = '$provinsi', nama_wali = '$nama_wali', pekerjaan_wali = '$pekerjaan_wali', alamat_wali = '$alamat_wali' WHERE nisn = '$nisn'");
+              $update = mysqli_query($conn, "UPDATE siswa SET nama_siswa = '$nama_siswa', nis = '$nis', jenis_kelamin_siswa = '$gender', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal', alamat_siswa = '$alamat_siswa', nama_ayah = '$nama_ayah', nama_ibu = '$nama_ibu', pekerjaan_ayah = '$pekerjaan_ayah', pekerjaan_ibu = '$pekerjaan_ibu', jalan = '$jalan', kelurahan = '$kelurahan', kecamatan = '$kecamatan', kabupaten = '$kabupaten', provinsi = '$provinsi', nama_wali = '$nama_wali', pekerjaan_wali = '$pekerjaan_wali', alamat_wali = '$alamat_wali', kode_kelas = '$kelas_siswa' WHERE nisn = '$nisn'");
 
               if ($update) {
                 echo "<script>alert('Berhasil Mengubah Data Siswa dengan Nama $nama_siswa')</script>";
