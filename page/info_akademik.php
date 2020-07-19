@@ -213,6 +213,7 @@ if (isset($_SESSION['login'])) {
                                     <thead>
                                         <tr>
                                             <th>Tanggal</th>
+                                            <th>Kategori</th>
                                             <th>Judul Informasi</th>
                                             <th>Gambar/Video</th>
                                             <th>Sunting</th>
@@ -232,6 +233,7 @@ if (isset($_SESSION['login'])) {
                             }
                             echo "<tr>";
                             echo "<th>".$baris[5]."</th>";
+                            echo "<th>".$baris[6]."</th>";
                             echo "<th>".$baris[1]."</th>";
                             echo "<th>".$cek."</th>";
                                 ?>

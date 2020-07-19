@@ -161,6 +161,18 @@ if (isset($_SESSION['login'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <?php 
+                    if ($data['kode_wali_kelas'] != NULL) {
+                    ?>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <div class="mb-0 text-gray-800"></div>
+                        <a href="kenaikan_kelas.php" class="d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
+                                class="fas fa-graduation-cap fa-sm text-white-50"></i> Kenaikan Kelas</a>
+                    </div>
+                    <?php
+                    }
+                    ?>
+
                     <?php
                     if (password_verify($pd, $data['katasandi_guru'])) {
                     ?>

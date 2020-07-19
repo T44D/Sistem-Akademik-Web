@@ -179,8 +179,10 @@ if (isset($_SESSION['login'])) {
                                             <th>Nama</th>
                                             <th>NPeng</th>
                                             <th>NPeng Predikat</th>
+                                            <th>NPeng Deskripsi</th>
                                             <th>NPrak</th>
                                             <th>NPrak Predikat</th>
+                                            <th>NPrak Deskripsi</th>
                                             <th>Edit Nilai</th>
                                         </tr>
                                     </thead>
@@ -198,7 +200,7 @@ if (isset($_SESSION['login'])) {
                         $hitung = mysqli_num_rows($data);
                         if ($hitung > 0) {
                             while ($baris = mysqli_fetch_array($data)) {
-                            $hasil = mysqli_query($conn, "SELECT * FROM siswa WHERE nisn = '$baris[7]'");
+                            $hasil = mysqli_query($conn, "SELECT * FROM siswa WHERE nisn = '$baris[9]'");
                             $row = mysqli_fetch_array($hasil);
                             echo "<tr>";
                             echo "<th>".$row['nama_siswa']."</th>";
@@ -206,6 +208,8 @@ if (isset($_SESSION['login'])) {
                             echo "<th>".$baris[2]."</th>";
                             echo "<th>".$baris[3]."</th>";
                             echo "<th>".$baris[4]."</th>";
+                            echo "<th>".$baris[5]."</th>";
+                            echo "<th>".$baris[6]."</th>";
                             ?>
                                         <th><a href="edit_nilai_akhir.php?no_nilai=<?php echo $baris[0]; ?>&kodejadwal=<?php echo $kodejadwal; ?>"
                                                 class="d-sm-inline-block btn btn-sm btn-primary shadow-sm">

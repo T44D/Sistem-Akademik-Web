@@ -122,7 +122,7 @@ while ($data = mysqli_fetch_array($sql)) {
 	$numrow++;
 }
 
-$excel->getActiveSheet()->getColumnDimension('A')->setWidth(30);
+$excel->getActiveSheet()->getColumnDimension('A')->setWidth(50);
 $excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
 $excel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
 $excel->getActiveSheet()->getColumnDimension('D')->setWidth(10);

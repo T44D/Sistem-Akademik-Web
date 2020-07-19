@@ -30,8 +30,10 @@ if ($num > 0){
             "id" => $row['no_nilai'],
             "np" => $row['np'],
             "predikat_np" => $row['predikat_np'],
+            "deskripsi_np" => $row['deskripsi_np'],
             "npt" => $row['npt'],
             "predikat_npt" => $row['predikat_npt'],
+            "deskripsi_npt" => $row['deskripsi_np'],
             "mapel" => $getmapel['nama_mata_pelajaran']
         ));
     }

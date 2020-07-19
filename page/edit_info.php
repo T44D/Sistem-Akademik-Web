@@ -231,6 +231,29 @@ if (isset($_SESSION['login'])) {
                                         name="deskripsi_info"><?php echo $data['deskripsi_info']; ?></textarea>
                                 </div>
                                 <div class="form-group">
+                                    <select class="custom-select" name="kategori" required>
+                                        <option value="" disabled>Pilih Kategori</option>
+                                        <option value="Akademik"
+                                            <?php if ($data['kategori'] == 'Akademik') echo ' selected="selected"'; ?>>
+                                            Akademik</option>
+                                        <option value="Non-Akademik"
+                                            <?php if ($data['kategori'] == 'Non-Akademik') echo ' selected="selected"'; ?>>
+                                            Non-Akademik</option>
+                                        <option value="Rapat Guru"
+                                            <?php if ($data['kategori'] == 'Rapat Guru') echo ' selected="selected"'; ?>>
+                                            Rapat Guru</option>
+                                        <option value="Rapat Orang Tua"
+                                            <?php if ($data['kategori'] == 'Rapat Orang Tua') echo ' selected="selected"'; ?>>
+                                            Rapat Orang Tua</option>
+                                        <option value="Hari Besar"
+                                            <?php if ($data['kategori'] == 'Hari Besar') echo ' selected="selected"'; ?>>
+                                            Hari Besar</option>
+                                        <option value="Hari Libur"
+                                            <?php if ($data['kategori'] == 'Hari Libur') echo ' selected="selected"'; ?>>
+                                            Hari Libur</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <div class="custom-file">
                                         <input type="file" name="file_import" class="custom-file-input">
                                         <label class="custom-file-label">Import Gambar/Video</label>
@@ -250,6 +273,7 @@ if (isset($_SESSION['login'])) {
                             $media_name = $data['media_info'];
                             $judul_info = antiinjection($_POST['judul_info']);
                             $deskripsi_info = antiinjection($_POST['deskripsi_info']);
+                            $kategori = antiinjection($_POST['kategori']);
                             $media = antiinjection($_FILES['file_import']['name']);
                             $ext = pathinfo($media, PATHINFO_EXTENSION);
                             $allowed = array('png', 'jpg', 'jpeg', 'mp4', 'webm', 'ogg');
@@ -268,7 +292,7 @@ if (isset($_SESSION['login'])) {
                                     } else {
                                         move_uploaded_file($tmp, $path);
                                     }
-                                    $insert = mysqli_query($conn, "UPDATE informasi_akademik SET judul_info = '$judul_info', deskripsi_info = '$deskripsi_info', media_info = '$media', media_info_tipe = '$ext', tanggal_info = '$tanggal'  WHERE no_info = $no_info");
+                                    $insert = mysqli_query($conn, "UPDATE informasi_akademik SET judul_info = '$judul_info', deskripsi_info = '$deskripsi_info', media_info = '$media', media_info_tipe = '$ext', tanggal_info = '$tanggal', kategori = '$kategori' WHERE no_info = $no_info");
                                     if ($insert) {
                                         if(!empty($media_name)) {
                                             $file_with_path = $_SERVER['DOCUMENT_ROOT']."/SistemAkademik/file/info_akademik/".$media_name;
@@ -283,7 +307,7 @@ if (isset($_SESSION['login'])) {
                                     }
                                 }
                             } else {
-                                $insert = mysqli_query($conn, "UPDATE informasi_akademik SET judul_info = '$judul_info', deskripsi_info = '$deskripsi_info', tanggal_info = '$tanggal' WHERE no_info = $no_info");
+                                $insert = mysqli_query($conn, "UPDATE informasi_akademik SET judul_info = '$judul_info', deskripsi_info = '$deskripsi_info', tanggal_info = '$tanggal', kategori = '$kategori' WHERE no_info = $no_info");
                                 if ($insert) {
                                     echo "<script>alert('Informasi Berhasil di perbarui')</script>";
                                     ?>

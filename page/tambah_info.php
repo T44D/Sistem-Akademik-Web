@@ -216,6 +216,17 @@ if (isset($_SESSION['login'])) {
                                         name="deskripsi_info"></textarea>
                                 </div>
                                 <div class="form-group">
+                                    <select class="custom-select" name="kategori" required>
+                                        <option value="" disabled selected>Pilih Kategori</option>
+                                        <option value="Akademik">Akademik</option>
+                                        <option value="Non-Akademik">Non-Akademik</option>
+                                        <option value="Rapat Guru">Rapat Guru</option>
+                                        <option value="Rapat Orang Tua">Rapat Orang Tua</option>
+                                        <option value="Hari Besar">Hari Besar</option>
+                                        <option value="Hari Libur">Hari Libur</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <div class="custom-file">
                                         <input type="file" name="file_import" class="custom-file-input">
                                         <label class="custom-file-label">Import Gambar/Video</label>
@@ -234,6 +245,7 @@ if (isset($_SESSION['login'])) {
                             $tanggal = date("d-m-Y");
                             $judul_info = antiinjection($_POST['judul_info']);
                             $deskripsi_info = antiinjection($_POST['deskripsi_info']);
+                            $kategori = antiinjection($_POST['kategori']);
                             $media = antiinjection($_FILES['file_import']['name']);
                             $ext = pathinfo($media, PATHINFO_EXTENSION);
                             $allowed = array('png', 'jpg', 'jpeg', 'mp4', 'webm', 'ogg');
@@ -252,7 +264,7 @@ if (isset($_SESSION['login'])) {
                                     } else {
                                         move_uploaded_file($tmp, $path);
                                     }
-                                    $insert = mysqli_query($conn, "INSERT INTO informasi_akademik VALUES (NULL, '$judul_info', '$deskripsi_info', '$media', '$ext', '$tanggal')");
+                                    $insert = mysqli_query($conn, "INSERT INTO informasi_akademik VALUES (NULL, '$judul_info', '$deskripsi_info', '$media', '$ext', '$tanggal', '$kategori')");
                                     if ($insert) {
                                         echo "<script>alert('Informasi Berhasil di sebarkan')</script>";
                                         ?>
@@ -263,7 +275,7 @@ if (isset($_SESSION['login'])) {
                                     }
                                 }
                             } else {
-                                $insert = mysqli_query($conn, "INSERT INTO informasi_akademik VALUES ('', '$judul_info', '$deskripsi_info', '', '', '$tanggal')");
+                                $insert = mysqli_query($conn, "INSERT INTO informasi_akademik VALUES ('', '$judul_info', '$deskripsi_info', '', '', '$tanggal', '$kategori')");
                                 if ($insert) {
                                     echo "<script>alert('Informasi Berhasil di sebarkan')</script>";
                                     ?>

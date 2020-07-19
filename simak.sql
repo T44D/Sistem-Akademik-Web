@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2020 at 03:25 PM
+-- Generation Time: Jul 19, 2020 at 09:41 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -43,24 +43,24 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`nik`, `nama_guru`, `jenis_kelamin_guru`, `alamat_guru`, `katasandi_guru`, `jenis_akun`, `kode_wali_kelas`) VALUES
-('10112', 'THERESIA LISTYOWATI, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('10120', 'LIANA HARNANDY, A.Ma.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('10187', 'MUJI LESTARI, S.Pd.SD', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
+('10112', 'THERESIA LISTYOWATI, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 22),
+('10120', 'LIANA HARNANDY, A.Ma.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 23),
+('10187', 'MUJI LESTARI, S.Pd.SD', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 28),
 ('10204', 'SAKEUS DARMAN', 'Laki-Laki', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('10392', 'COLETA SUSANTININGRUM, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('10441', 'ANASTASIA SULISTIANI, S.Pd.SD', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('10462', 'MARIA MAGDALENA SRI HANDAYANI S. S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('10542', 'THEODORUS CANDRA LB, S.Pd', 'Laki-Laki', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('10568', 'SUSANTI SUSILAWATI, S.Komp, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
+('10392', 'COLETA SUSANTININGRUM, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 19),
+('10441', 'ANASTASIA SULISTIANI, S.Pd.SD', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 27),
+('10462', 'MARIA MAGDALENA SRI HANDAYANI S. S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 30),
+('10542', 'THEODORUS CANDRA LB, S.Pd', 'Laki-Laki', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 25),
+('10568', 'SUSANTI SUSILAWATI, S.Komp, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 20),
 ('10571', 'PETRUS SANTOSO, S.Pd.SD', 'Laki-Laki', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('10667', 'MARIA ALFRIDA NONA YANTI, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
+('10667', 'MARIA ALFRIDA NONA YANTI, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 29),
 ('10901', 'ALFREDO H. SIMATUPANG S. Kom', 'Laki-Laki', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
 ('10971', 'SUHADI, S.Pd', 'Laki-Laki', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('11110', 'MENIAMA GEA, S.Pd.K', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('11111', 'LINCERIA SIHOMBING, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
+('11110', 'MENIAMA GEA, S.Pd.K', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 24),
+('11111', 'LINCERIA SIHOMBING, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 21),
 ('18110102', 'NICO SURYA HILKIA, S.S', 'Laki-Laki', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
 ('202190194', 'ELISABETH DHIAN NOVITASARI, S.Pd', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
-('207197287', 'MERLIN ERVINA ROTUA RAJA GUK-GUK, S.Si', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, NULL),
+('207197287', 'MERLIN ERVINA ROTUA RAJA GUK-GUK, S.Si', 'Perempuan', '-', '$2y$10$R8z6FVr4/F3EAAxT3Hlj2uFtX9xgynI7a7wwCazAXx1i.wlHNYWIO', 2, 26),
 ('admin', 'Simak', '-', '-', '$2y$10$7nrOvO5AJcqPUqUuGJRYbO6RuwtkW8ynnPxZy2WD/G3WjTipWfDKe', 9, NULL);
 
 -- --------------------------------------------------------
@@ -75,7 +75,8 @@ CREATE TABLE `informasi_akademik` (
   `deskripsi_info` varchar(1000) NOT NULL,
   `media_info` varchar(250) DEFAULT NULL,
   `media_info_tipe` varchar(3) DEFAULT NULL,
-  `tanggal_info` varchar(10) NOT NULL
+  `tanggal_info` varchar(10) NOT NULL,
+  `kategori` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -570,6 +571,20 @@ INSERT INTO `kelas` (`kode_kelas`, `kode_wali_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kenaikan_kelas`
+--
+
+CREATE TABLE `kenaikan_kelas` (
+  `kode_konfirmasi` int(11) NOT NULL,
+  `status` varchar(5) NOT NULL,
+  `nisn` varchar(15) NOT NULL,
+  `kode_kelas` varchar(2) NOT NULL,
+  `tahun` varchar(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mata_pelajaran`
 --
 
@@ -610,54 +625,16 @@ CREATE TABLE `nilai_akhir` (
   `no_nilai` int(11) NOT NULL,
   `np` int(11) DEFAULT NULL,
   `predikat_np` varchar(1) DEFAULT NULL,
+  `deskripsi_np` varchar(500) DEFAULT NULL,
   `npt` int(11) DEFAULT NULL,
   `predikat_npt` varchar(1) DEFAULT NULL,
+  `deskripsi_npt` varchar(500) DEFAULT NULL,
   `kode_mata_pelajaran` varchar(2) NOT NULL,
   `kode_kelas` varchar(2) NOT NULL,
   `nisn` varchar(15) NOT NULL,
   `tahun` varchar(9) NOT NULL,
   `semester` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `nilai_akhir`
---
-
-INSERT INTO `nilai_akhir` (`no_nilai`, `np`, `predikat_np`, `npt`, `predikat_npt`, `kode_mata_pelajaran`, `kode_kelas`, `nisn`, `tahun`, `semester`) VALUES
-(1, 90, 'A', 90, 'A', 'OR', '6B', '0083369001', '2020/2021', 1),
-(2, NULL, '', NULL, '', 'OR', '6B', '0084104616', '2020/2021', 1),
-(3, NULL, '', NULL, '', 'OR', '6B', '0086931511', '2020/2021', 1),
-(4, NULL, '', NULL, '', 'OR', '6B', '0084512098', '2020/2021', 1),
-(5, NULL, '', NULL, '', 'OR', '6B', '0083524523', '2020/2021', 1),
-(6, NULL, '', NULL, '', 'OR', '6B', '0089285043', '2020/2021', 1),
-(7, NULL, '', NULL, '', 'OR', '6B', '0089669344', '2020/2021', 1),
-(8, NULL, '', NULL, '', 'OR', '6B', '0089157602', '2020/2021', 1),
-(9, NULL, '', NULL, '', 'OR', '6B', '0081268684', '2020/2021', 1),
-(10, NULL, '', NULL, '', 'OR', '6B', '0083996289', '2020/2021', 1),
-(11, NULL, '', NULL, '', 'OR', '6B', '0074835377', '2020/2021', 1),
-(12, NULL, '', NULL, '', 'OR', '6B', '0084512807', '2020/2021', 1),
-(13, NULL, '', NULL, '', 'OR', '6B', '0081497220', '2020/2021', 1),
-(14, NULL, '', NULL, '', 'OR', '6B', '0078817042', '2020/2021', 1),
-(15, NULL, '', NULL, '', 'OR', '6B', '0085143131', '2020/2021', 1),
-(16, NULL, '', NULL, '', 'OR', '6B', '0083461152', '2020/2021', 1),
-(17, NULL, '', NULL, '', 'OR', '6B', '0088320403', '2020/2021', 1),
-(18, NULL, '', NULL, '', 'OR', '6B', '0086333653', '2020/2021', 1),
-(19, NULL, '', NULL, '', 'OR', '6B', '0088409339', '2020/2021', 1),
-(20, NULL, '', NULL, '', 'OR', '6B', '0085055729', '2020/2021', 1),
-(21, NULL, '', NULL, '', 'OR', '6B', '0079915425', '2020/2021', 1),
-(22, NULL, '', NULL, '', 'OR', '6B', '0081166224', '2020/2021', 1),
-(23, NULL, '', NULL, '', 'OR', '6B', '0082632363', '2020/2021', 1),
-(24, NULL, '', NULL, '', 'OR', '6B', '0081497671', '2020/2021', 1),
-(25, NULL, '', NULL, '', 'OR', '6B', '0082953386', '2020/2021', 1),
-(26, NULL, '', NULL, '', 'OR', '6B', '0089864480', '2020/2021', 1),
-(27, NULL, '', NULL, '', 'OR', '6B', '0086773214', '2020/2021', 1),
-(28, NULL, '', NULL, '', 'OR', '6B', '0087773854', '2020/2021', 1),
-(29, NULL, '', NULL, '', 'OR', '6B', '0086608446', '2020/2021', 1),
-(30, NULL, '', NULL, '', 'OR', '6B', '0088112817', '2020/2021', 1),
-(31, NULL, '', NULL, '', 'OR', '6B', '0082571102', '2020/2021', 1),
-(32, NULL, '', NULL, '', 'OR', '6B', '0085406328', '2020/2021', 1),
-(33, NULL, '', NULL, '', 'OR', '6B', '0084450406', '2020/2021', 1),
-(34, NULL, '', NULL, '', 'OR', '6B', '0082181328', '2020/2021', 1);
 
 -- --------------------------------------------------------
 
@@ -685,46 +662,6 @@ CREATE TABLE `nilai_harian` (
   `semester` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `nilai_harian`
---
-
-INSERT INTO `nilai_harian` (`no_nilai`, `np1`, `np2`, `np3`, `np4`, `np5`, `nk1`, `nk2`, `nk3`, `nk4`, `nk5`, `pts`, `kode_mata_pelajaran`, `kode_kelas`, `nisn`, `tahun`, `semester`) VALUES
-(1, 90, 90, 90, 90, 90, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0083369001', '2020/2021', 1),
-(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0084104616', '2020/2021', 1),
-(3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0086931511', '2020/2021', 1),
-(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0084512098', '2020/2021', 1),
-(5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0083524523', '2020/2021', 1),
-(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0089285043', '2020/2021', 1),
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0089669344', '2020/2021', 1),
-(8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0089157602', '2020/2021', 1),
-(9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0081268684', '2020/2021', 1),
-(10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0083996289', '2020/2021', 1),
-(11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0074835377', '2020/2021', 1),
-(12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0084512807', '2020/2021', 1),
-(13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0081497220', '2020/2021', 1),
-(14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0078817042', '2020/2021', 1),
-(15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0085143131', '2020/2021', 1),
-(16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0083461152', '2020/2021', 1),
-(17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0088320403', '2020/2021', 1),
-(18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0086333653', '2020/2021', 1),
-(19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0088409339', '2020/2021', 1),
-(20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0085055729', '2020/2021', 1),
-(21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0079915425', '2020/2021', 1),
-(22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0081166224', '2020/2021', 1),
-(23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0082632363', '2020/2021', 1),
-(24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0081497671', '2020/2021', 1),
-(25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0082953386', '2020/2021', 1),
-(26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0089864480', '2020/2021', 1),
-(27, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0086773214', '2020/2021', 1),
-(28, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0087773854', '2020/2021', 1),
-(29, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0086608446', '2020/2021', 1),
-(30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0088112817', '2020/2021', 1),
-(31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0082571102', '2020/2021', 1),
-(32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0085406328', '2020/2021', 1),
-(33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0084450406', '2020/2021', 1),
-(34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'OR', '6B', '0082181328', '2020/2021', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -740,46 +677,6 @@ CREATE TABLE `presensi` (
   `tahun` varchar(9) NOT NULL,
   `semester` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `presensi`
---
-
-INSERT INTO `presensi` (`no_presensi`, `tanggal`, `keterangan`, `nisn`, `kode_jadwal`, `tahun`, `semester`) VALUES
-(1, '03-07-2020', 'Izin', '0083369001', 405, '2020/2021', 1),
-(2, '03-07-2020', 'Hadir', '0084104616', 405, '2020/2021', 1),
-(3, '03-07-2020', 'Hadir', '0086931511', 405, '2020/2021', 1),
-(4, '03-07-2020', 'Hadir', '0084512098', 405, '2020/2021', 1),
-(5, '03-07-2020', 'Hadir', '0083524523', 405, '2020/2021', 1),
-(6, '03-07-2020', 'Hadir', '0089285043', 405, '2020/2021', 1),
-(7, '03-07-2020', 'Hadir', '0089669344', 405, '2020/2021', 1),
-(8, '03-07-2020', 'Hadir', '0089157602', 405, '2020/2021', 1),
-(9, '03-07-2020', 'Hadir', '0081268684', 405, '2020/2021', 1),
-(10, '03-07-2020', 'Hadir', '0083996289', 405, '2020/2021', 1),
-(11, '03-07-2020', 'Hadir', '0074835377', 405, '2020/2021', 1),
-(12, '03-07-2020', 'Hadir', '0084512807', 405, '2020/2021', 1),
-(13, '03-07-2020', 'Hadir', '0081497220', 405, '2020/2021', 1),
-(14, '03-07-2020', 'Hadir', '0078817042', 405, '2020/2021', 1),
-(15, '03-07-2020', 'Hadir', '0085143131', 405, '2020/2021', 1),
-(16, '03-07-2020', 'Hadir', '0083461152', 405, '2020/2021', 1),
-(17, '03-07-2020', 'Hadir', '0088320403', 405, '2020/2021', 1),
-(18, '03-07-2020', 'Hadir', '0086333653', 405, '2020/2021', 1),
-(19, '03-07-2020', 'Hadir', '0088409339', 405, '2020/2021', 1),
-(20, '03-07-2020', 'Hadir', '0085055729', 405, '2020/2021', 1),
-(21, '03-07-2020', 'Hadir', '0079915425', 405, '2020/2021', 1),
-(22, '03-07-2020', 'Hadir', '0081166224', 405, '2020/2021', 1),
-(23, '03-07-2020', 'Hadir', '0082632363', 405, '2020/2021', 1),
-(24, '03-07-2020', 'Hadir', '0081497671', 405, '2020/2021', 1),
-(25, '03-07-2020', 'Hadir', '0082953386', 405, '2020/2021', 1),
-(26, '03-07-2020', 'Hadir', '0089864480', 405, '2020/2021', 1),
-(27, '03-07-2020', 'Hadir', '0086773214', 405, '2020/2021', 1),
-(28, '03-07-2020', 'Hadir', '0087773854', 405, '2020/2021', 1),
-(29, '03-07-2020', 'Hadir', '0086608446', 405, '2020/2021', 1),
-(30, '03-07-2020', 'Hadir', '0088112817', 405, '2020/2021', 1),
-(31, '03-07-2020', 'Hadir', '0082571102', 405, '2020/2021', 1),
-(32, '03-07-2020', 'Hadir', '0085406328', 405, '2020/2021', 1),
-(33, '03-07-2020', 'Hadir', '0084450406', 405, '2020/2021', 1),
-(34, '03-07-2020', 'Hadir', '0082181328', 405, '2020/2021', 1);
 
 -- --------------------------------------------------------
 
@@ -1226,7 +1123,8 @@ INSERT INTO `wali_kelas` (`kode_wali_kelas`, `kode_kelas`, `nik`) VALUES
 -- Indexes for table `guru`
 --
 ALTER TABLE `guru`
-  ADD PRIMARY KEY (`nik`);
+  ADD PRIMARY KEY (`nik`),
+  ADD KEY `kode_wali_kelas` (`kode_wali_kelas`);
 
 --
 -- Indexes for table `informasi_akademik`
@@ -1251,6 +1149,15 @@ ALTER TABLE `kelas`
   ADD KEY `kode_wali_kelas` (`kode_wali_kelas`);
 
 --
+-- Indexes for table `kenaikan_kelas`
+--
+ALTER TABLE `kenaikan_kelas`
+  ADD PRIMARY KEY (`kode_konfirmasi`),
+  ADD KEY `nisn` (`nisn`),
+  ADD KEY `kode_kelas` (`kode_kelas`),
+  ADD KEY `tahun` (`tahun`);
+
+--
 -- Indexes for table `mata_pelajaran`
 --
 ALTER TABLE `mata_pelajaran`
@@ -1264,8 +1171,7 @@ ALTER TABLE `nilai_akhir`
   ADD KEY `kode_mata_pelajaran` (`kode_mata_pelajaran`),
   ADD KEY `kode_kelas` (`kode_kelas`),
   ADD KEY `nisn` (`nisn`),
-  ADD KEY `tahun` (`tahun`),
-  ADD KEY `semester` (`semester`);
+  ADD KEY `tahun` (`tahun`);
 
 --
 -- Indexes for table `nilai_harian`
@@ -1276,7 +1182,6 @@ ALTER TABLE `nilai_harian`
   ADD KEY `kode_mata_pelajaran` (`kode_mata_pelajaran`),
   ADD KEY `kode_kelas` (`kode_kelas`),
   ADD KEY `tahun` (`tahun`),
-  ADD KEY `semester` (`semester`),
   ADD KEY `nisn_2` (`nisn`),
   ADD KEY `kode_kelas_2` (`kode_kelas`);
 
@@ -1287,7 +1192,6 @@ ALTER TABLE `presensi`
   ADD PRIMARY KEY (`no_presensi`),
   ADD KEY `nisn` (`nisn`),
   ADD KEY `kode_jadwal` (`kode_jadwal`),
-  ADD KEY `semester` (`semester`),
   ADD KEY `tahun` (`tahun`);
 
 --
@@ -1296,6 +1200,12 @@ ALTER TABLE `presensi`
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`nisn`),
   ADD KEY `kode_kelas` (`kode_kelas`);
+
+--
+-- Indexes for table `tahun_ajaran`
+--
+ALTER TABLE `tahun_ajaran`
+  ADD PRIMARY KEY (`tahun`);
 
 --
 -- Indexes for table `wali_kelas`
@@ -1313,7 +1223,7 @@ ALTER TABLE `wali_kelas`
 -- AUTO_INCREMENT for table `informasi_akademik`
 --
 ALTER TABLE `informasi_akademik`
-  MODIFY `no_info` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `no_info` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jadwal`
@@ -1322,10 +1232,16 @@ ALTER TABLE `jadwal`
   MODIFY `kode_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=439;
 
 --
+-- AUTO_INCREMENT for table `kenaikan_kelas`
+--
+ALTER TABLE `kenaikan_kelas`
+  MODIFY `kode_konfirmasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
 -- AUTO_INCREMENT for table `nilai_akhir`
 --
 ALTER TABLE `nilai_akhir`
-  MODIFY `no_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `no_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `nilai_harian`
@@ -1344,6 +1260,77 @@ ALTER TABLE `presensi`
 --
 ALTER TABLE `wali_kelas`
   MODIFY `kode_wali_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `guru`
+--
+ALTER TABLE `guru`
+  ADD CONSTRAINT `guru_ibfk_1` FOREIGN KEY (`kode_wali_kelas`) REFERENCES `wali_kelas` (`kode_wali_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  ADD CONSTRAINT `jadwal_ibfk_1` FOREIGN KEY (`kode_mata_pelajaran`) REFERENCES `mata_pelajaran` (`kode_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_ibfk_2` FOREIGN KEY (`nik`) REFERENCES `guru` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_ibfk_3` FOREIGN KEY (`kode_kelas`) REFERENCES `kelas` (`kode_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kelas`
+--
+ALTER TABLE `kelas`
+  ADD CONSTRAINT `kelas_ibfk_1` FOREIGN KEY (`kode_wali_kelas`) REFERENCES `wali_kelas` (`kode_wali_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kenaikan_kelas`
+--
+ALTER TABLE `kenaikan_kelas`
+  ADD CONSTRAINT `kenaikan_kelas_ibfk_1` FOREIGN KEY (`nisn`) REFERENCES `siswa` (`nisn`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `kenaikan_kelas_ibfk_2` FOREIGN KEY (`kode_kelas`) REFERENCES `kelas` (`kode_kelas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `kenaikan_kelas_ibfk_3` FOREIGN KEY (`tahun`) REFERENCES `tahun_ajaran` (`tahun`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `nilai_akhir`
+--
+ALTER TABLE `nilai_akhir`
+  ADD CONSTRAINT `nilai_akhir_ibfk_1` FOREIGN KEY (`kode_kelas`) REFERENCES `kelas` (`kode_kelas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `nilai_akhir_ibfk_2` FOREIGN KEY (`nisn`) REFERENCES `siswa` (`nisn`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `nilai_akhir_ibfk_3` FOREIGN KEY (`kode_mata_pelajaran`) REFERENCES `mata_pelajaran` (`kode_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `nilai_akhir_ibfk_4` FOREIGN KEY (`tahun`) REFERENCES `tahun_ajaran` (`tahun`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `nilai_harian`
+--
+ALTER TABLE `nilai_harian`
+  ADD CONSTRAINT `nilai_harian_ibfk_1` FOREIGN KEY (`kode_mata_pelajaran`) REFERENCES `mata_pelajaran` (`kode_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `nilai_harian_ibfk_2` FOREIGN KEY (`kode_kelas`) REFERENCES `kelas` (`kode_kelas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `nilai_harian_ibfk_3` FOREIGN KEY (`nisn`) REFERENCES `siswa` (`nisn`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `nilai_harian_ibfk_4` FOREIGN KEY (`tahun`) REFERENCES `tahun_ajaran` (`tahun`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD CONSTRAINT `presensi_ibfk_1` FOREIGN KEY (`kode_jadwal`) REFERENCES `jadwal` (`kode_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `presensi_ibfk_2` FOREIGN KEY (`tahun`) REFERENCES `tahun_ajaran` (`tahun`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `presensi_ibfk_3` FOREIGN KEY (`nisn`) REFERENCES `siswa` (`nisn`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `siswa`
+--
+ALTER TABLE `siswa`
+  ADD CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`kode_kelas`) REFERENCES `kelas` (`kode_kelas`);
+
+--
+-- Constraints for table `wali_kelas`
+--
+ALTER TABLE `wali_kelas`
+  ADD CONSTRAINT `wali_kelas_ibfk_1` FOREIGN KEY (`nik`) REFERENCES `guru` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `wali_kelas_ibfk_2` FOREIGN KEY (`kode_kelas`) REFERENCES `kelas` (`kode_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

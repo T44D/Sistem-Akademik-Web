@@ -33,51 +33,51 @@
     //Nilai
     $query5 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'AG'");
     $data5 = mysqli_fetch_array($query5);
-    $npAG = array($data5[1], $data5[2], $data5[3], $data5[4]);
+    $npAG = array($data5[1], $data5[2], $data5[3], $data5[4], $data5[5], $data5[6]);
 
     $query6 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'PK'");
     $data6 = mysqli_fetch_array($query6);
-    $npPK = array($data6[1], $data6[2], $data6[3], $data6[4]);
+    $npPK = array($data6[1], $data6[2], $data6[3], $data6[4], $data6[5], $data6[6]);
 
     $query7 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'BI'");
     $data7 = mysqli_fetch_array($query7);
-    $npBI = array($data7[1], $data7[2], $data7[3], $data7[4]);
+    $npBI = array($data7[1], $data7[2], $data7[3], $data7[4], $data7[5], $data7[6]);
 
     $query8 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'MT'");
     $data8 = mysqli_fetch_array($query8);
-    $npMT = array($data8[1], $data8[2], $data8[3], $data8[4]);
+    $npMT = array($data8[1], $data8[2], $data8[3], $data8[4], $data8[5], $data8[6]);
 
     $query9 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'PA'");
     $data9 = mysqli_fetch_array($query9);
-    $npPA = array($data9[1], $data9[2], $data9[3], $data9[4]);
+    $npPA = array($data9[1], $data9[2], $data9[3], $data9[4], $data9[5], $data9[6]);
 
     $query10 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'PS'");
     $data10 = mysqli_fetch_array($query10);
-    $npPS = array($data10[1], $data10[2], $data10[3], $data10[4]);
+    $npPS = array($data10[1], $data10[2], $data10[3], $data10[4], $data10[5], $data10[6]);
 
     $query11 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'SB'");
     $data11 = mysqli_fetch_array($query11);
-    $npSB = array($data11[1], $data11[2], $data11[3], $data11[4]);
+    $npSB = array($data11[1], $data11[2], $data11[3], $data11[4], $data11[5], $data11[6]);
     
     $query12 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'OR'");
     $data12 = mysqli_fetch_array($query12);
-    $npOR = array($data12[1], $data12[2], $data12[3], $data12[4]);
+    $npOR = array($data12[1], $data12[2], $data12[3], $data12[4], $data12[5], $data12[6]);
 
     $query13 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'BD'");
     $data13 = mysqli_fetch_array($query13);
-    $npBD = array($data13[1], $data13[2], $data13[3], $data13[4]);
+    $npBD = array($data13[1], $data13[2], $data13[3], $data13[4], $data13[5], $data13[6]);
 
     $query14 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'PL'");
     $data14 = mysqli_fetch_array($query14);
-    $npPL = array($data14[1], $data14[2], $data14[3], $data14[4]);
+    $npPL = array($data14[1], $data14[2], $data14[3], $data14[4], $data14[5], $data14[6]);
 
     $query15 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'IG'");
     $data15 = mysqli_fetch_array($query15);
-    $npIG = array($data15[1], $data15[2], $data15[3], $data15[4]);
+    $npIG = array($data15[1], $data15[2], $data15[3], $data15[4], $data15[5], $data15[6]);
 
     $query16 = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kelas' AND semester = '$semester' AND kode_mata_pelajaran = 'KP'");
     $data16 = mysqli_fetch_array($query16);
-    $npKP = array($data16[1], $data16[2], $data16[3], $data16[4]);
+    $npKP = array($data16[1], $data16[2], $data16[3], $data16[4], $data16[5], $data16[6]);
 
     //Presensi
     $sakit = "-";
@@ -151,14 +151,16 @@
                 <tr>
                     <th rowspan="2" style="text-align: center;">No</th>
                     <th rowspan="2" style="text-align: center;">Muatan Pelajaran</th>
-                    <th colspan="2" style="text-align: center;">Pendidikan</th>
-                    <th colspan="2" style="text-align: center;">Keterampilan</th>
+                    <th colspan="3" style="text-align: center;">Pendidikan</th>
+                    <th colspan="3" style="text-align: center;">Keterampilan</th>
                 </tr>
                 <tr>
                     <th style="text-align: center;">Nilai </th>
                     <th style="text-align: center;">Predikat</th>
+                    <th style="text-align: center;">Deskripsi</th>
                     <th style="text-align: center;">Nilai</th>
                     <th style="text-align: center;">Predikat</th>
+                    <th style="text-align: center;">Deskripsi</th>
                 </tr>
                 <tr>
                     <td>1.</td>
@@ -167,6 +169,8 @@
                     <td><?php echo $npAG[1]; ?></td>
                     <td><?php echo $npAG[2]; ?></td>
                     <td><?php echo $npAG[3]; ?></td>
+                    <td><?php echo $npAG[4]; ?></td>
+                    <td><?php echo $npAG[5]; ?></td>
                 </tr>
                 <tr>
                     <td>2.</td>
@@ -175,6 +179,8 @@
                     <td><?php echo $npPK[1]; ?></td>
                     <td><?php echo $npPK[2]; ?></td>
                     <td><?php echo $npPK[3]; ?></td>
+                    <td><?php echo $npPK[4]; ?></td>
+                    <td><?php echo $npPK[5]; ?></td>
                 </tr>
                 <tr>
                     <td>3.</td>
@@ -183,6 +189,8 @@
                     <td><?php echo $npBI[1]; ?></td>
                     <td><?php echo $npBI[2]; ?></td>
                     <td><?php echo $npBI[3]; ?></td>
+                    <td><?php echo $npBI[4]; ?></td>
+                    <td><?php echo $npBI[5]; ?></td>
                 </tr>
                 <tr>
                     <td>4.</td>
@@ -191,6 +199,8 @@
                     <td><?php echo $npMT[1]; ?></td>
                     <td><?php echo $npMT[2]; ?></td>
                     <td><?php echo $npMT[3]; ?></td>
+                    <td><?php echo $npMT[4]; ?></td>
+                    <td><?php echo $npMT[5]; ?></td>
                 </tr>
                 <tr>
                     <td>5.</td>
@@ -199,6 +209,8 @@
                     <td><?php echo $npPA[1]; ?></td>
                     <td><?php echo $npPA[2]; ?></td>
                     <td><?php echo $npPA[3]; ?></td>
+                    <td><?php echo $npPA[4]; ?></td>
+                    <td><?php echo $npPA[5]; ?></td>
                 </tr>
                 <tr>
                     <td>6.</td>
@@ -207,6 +219,8 @@
                     <td><?php echo $npPS[1]; ?></td>
                     <td><?php echo $npPS[2]; ?></td>
                     <td><?php echo $npPS[3]; ?></td>
+                    <td><?php echo $npPS[4]; ?></td>
+                    <td><?php echo $npPS[5]; ?></td>
                 </tr>
                 <tr>
                     <td>7.</td>
@@ -215,6 +229,8 @@
                     <td><?php echo $npSB[1]; ?></td>
                     <td><?php echo $npSB[2]; ?></td>
                     <td><?php echo $npSB[3]; ?></td>
+                    <td><?php echo $npSB[4]; ?></td>
+                    <td><?php echo $npSB[5]; ?></td>
                 </tr>
                 <tr>
                     <td>8.</td>
@@ -223,10 +239,14 @@
                     <td><?php echo $npOR[1]; ?></td>
                     <td><?php echo $npOR[2]; ?></td>
                     <td><?php echo $npOR[3]; ?></td>
+                    <td><?php echo $npOR[4]; ?></td>
+                    <td><?php echo $npOR[5]; ?></td>
                 </tr>
                 <tr>
                     <th>9.</th>
                     <th>Muatan Lokal</th>
+                    <td> </td>
+                    <td> </td>
                     <td> </td>
                     <td> </td>
                     <td> </td>
@@ -239,6 +259,8 @@
                     <td><?php echo $npBD[1]; ?></td>
                     <td><?php echo $npBD[2]; ?></td>
                     <td><?php echo $npBD[3]; ?></td>
+                    <td><?php echo $npBD[4]; ?></td>
+                    <td><?php echo $npBD[5]; ?></td>
                 </tr>
                 <tr>
                     <td>b.</td>
@@ -247,6 +269,8 @@
                     <td><?php echo $npPL[1]; ?></td>
                     <td><?php echo $npPL[2]; ?></td>
                     <td><?php echo $npPL[3]; ?></td>
+                    <td><?php echo $npPL[4]; ?></td>
+                    <td><?php echo $npPL[5]; ?></td>
                 </tr>
                 <tr>
                     <td>c.</td>
@@ -255,6 +279,8 @@
                     <td><?php echo $npIG[1]; ?></td>
                     <td><?php echo $npIG[2]; ?></td>
                     <td><?php echo $npIG[3]; ?></td>
+                    <td><?php echo $npIG[4]; ?></td>
+                    <td><?php echo $npIG[5]; ?></td>
                 </tr>
                 <tr>
                     <td>d.</td>
@@ -263,6 +289,8 @@
                     <td><?php echo $npKP[1]; ?></td>
                     <td><?php echo $npKP[2]; ?></td>
                     <td><?php echo $npKP[3]; ?></td>
+                    <td><?php echo $npKP[4]; ?></td>
+                    <td><?php echo $npKP[5]; ?></td>
                 </tr>
             </thread>
         </table>

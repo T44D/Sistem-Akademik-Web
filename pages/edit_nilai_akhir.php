@@ -32,6 +32,12 @@
             $filter_sql = mysqli_real_escape_string($conn, $data);
             return $filter_sql;
         }
+        function cekNULL($nilai) {
+            if ($nilai == "") {
+                $nilai = "NULL";
+            }
+            return $nilai;
+        }
     ?>
 
 </head>
@@ -196,15 +202,25 @@ if (isset($_SESSION['login'])) {
                                         onkeyup="this.value = this.value.toUpperCase();" value="<?php echo $row[2]; ?>">
                                 </div>
                                 <div class="form-group">
+                                    <label>Deskripsi Nilai Pengetahuan</label>
+                                    <input type="text" class="form-control" placeholder="Deskripsi Nilai Pengetahuan"
+                                        maxlength="500" name="desc_np" value="<?php echo $row[3]; ?>">
+                                </div>
+                                <div class="form-group">
                                     <label>Nilai Praktek</label>
                                     <input type="number" class="form-control" placeholder="Nilai Praktek" maxlength="3"
-                                        name="npt" value="<?php echo $row[3]; ?>">
+                                        name="npt" value="<?php echo $row[4]; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Predikat Nilai Praktek</label>
                                     <input type="text" class="form-control" placeholder="Predikat Nilai Praktek"
                                         maxlength="1" name="predikat_npt"
-                                        onkeyup="this.value = this.value.toUpperCase();" value="<?php echo $row[4]; ?>">
+                                        onkeyup="this.value = this.value.toUpperCase();" value="<?php echo $row[5]; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Deskripsi Nilai Praktek</label>
+                                    <input type="text" class="form-control" placeholder="Deskripsi Nilai Praktek"
+                                        maxlength="500" name="desc_npt" value="<?php echo $row[6]; ?>">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary btn-user btn-block" name="input_nilai"
@@ -218,17 +234,14 @@ if (isset($_SESSION['login'])) {
                     if (isset($_POST['input_nilai'])) {
                         $np = antiinjection($_POST['np']);
                         $predikat_np = antiinjection($_POST['predikat_np']);
+                        $desc_np = antiinjection($_POST['desc_np']);
                         $npt = antiinjection($_POST['npt']);
                         $predikat_npt = antiinjection($_POST['predikat_npt']);
+                        $desc_npt = antiinjection($_POST['desc_npt']);
 
-                        if ($np == "") {
-                            $np = "NULL";
-                        }
-                        if ($npt == "") {
-                            $npt = "NULL";
-                        }
-
-                        $update = mysqli_query($conn, "UPDATE nilai_akhir SET np = $np, predikat_np = '$predikat_np', npt = $npt, predikat_npt = '$predikat_npt' WHERE no_nilai = '$no_nilai'");
+                        $np = cekNULL($np);
+                        $npt = cekNULL($npt);
+                        $update = mysqli_query($conn, "UPDATE nilai_akhir SET np = $np, predikat_np = '$predikat_np', deskripsi_np = '$desc_np', npt = $npt, predikat_npt = '$predikat_npt', deskripsi_npt = '$desc_npt' WHERE no_nilai = '$no_nilai'");
 
                         if ($update) {
                             echo "<script>alert('Berhasil Mengupdate Data')</script>";

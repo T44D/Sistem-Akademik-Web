@@ -199,6 +199,64 @@ if (isset($_SESSION['login'])) {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <!-- Content Row -->
+                    <div class="row">
+                        <?php
+                        $status = TRUE;
+                        $query = mysqli_query($conn, "SELECT * FROM tahun_ajaran");
+                        $ta = mysqli_fetch_array($query);
+                        $tahun = $ta[0];
+                        $cek = mysqli_query($conn, "SELECT * FROM kelas ORDER BY kode_kelas ASC");
+                        while ($fetch = mysqli_fetch_array($cek)) {
+                            $kelas = $fetch['kode_kelas'];
+                            $kenaikankelas = mysqli_query($conn, "SELECT * FROM kenaikan_kelas WHERE kode_kelas = '$kelas' AND tahun = '$tahun' LIMIT 1");
+                            $num = mysqli_num_rows($kenaikankelas);
+                            if ($num > 0) {
+                        ?>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Sudah</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <?php echo $kelas; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php
+                            } else {
+                                $status = FALSE;
+                        ?>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-danger shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                Belum</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <?php echo $kelas; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php
+                            } 
+                        }
+                        ?>
+
+                        <!-- Content Row -->
+
+                    </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -210,7 +268,6 @@ if (isset($_SESSION['login'])) {
                             $tahun = explode("/", $ta[0]);
                             $tahun_awal = $tahun[0];
                             $tahun_akhir = $tahun[1];
-                            $semester = $ta[1];
                         ?>
                         <div class="card-body">
                             <form class="user" method="POST" enctype="multipart/form-data">
@@ -226,16 +283,6 @@ if (isset($_SESSION['login'])) {
                                             maxlength="4" required name="tahun_akhir"
                                             value="<?php echo $tahun_akhir; ?>">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputSemester">Semester</label>
-                                    <select class="custom-select" id="inputSemester" name="semester" required>
-                                        <option value="" disabled selected>Pilih Semester</option>
-                                        <option value="1" <?php if($semester=="1") echo 'selected="selected"'; ?>>1
-                                        </option>
-                                        <option value="2" <?php if($semester=="2") echo 'selected="selected"'; ?>>2
-                                        </option>
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" placeholder="Kata Sandi Admin" required
@@ -256,18 +303,100 @@ if (isset($_SESSION['login'])) {
                             $row = mysqli_fetch_array($cek);
                             $tahun_awal = antiinjection($_POST['tahun_awal']);
                             $tahun_akhir = antiinjection($_POST['tahun_akhir']);
-                            $semester = antiinjection($_POST['semester']);
                             $tahun_ajaran = $tahun_awal."/".$tahun_akhir;
                             $katasandi = antiinjection($_POST['katasandi']);
+                            $kenaikankelas = mysqli_query($conn, "SELECT * FROM kenaikan_kelas WHERE tahun = '$tahun_ajaran' LIMIT 1");
+                            $numkenaikankelas = mysqli_num_rows($kenaikankelas);
                             if(password_verify($katasandi, $row[4])) {
-                                $query = mysqli_query($conn, "UPDATE tahun_ajaran SET tahun = '$tahun_ajaran', semester = $semester");
-                                if($query) {
-                                    echo "<script>alert('Tahun Ajaran Berhasil Dirubah')</script>";
-                                    ?>
+                                if ($numkenaikankelas > 0) {
+                                    echo "<script>alert('Anda Tidak Boleh Menggunakan Tahun Ajaran Yang Sudah Ada')</script>";
+                                } else {
+                                    if ($status == TRUE) {
+
+                                        $updatecek1 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '1A'");
+                                        while ($updatefetch1 = mysqli_fetch_array($updatecek1)) {
+                                            $nisn = $updatefetch1['nisn'];
+                                            $updateKelas1A = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '2A' WHERE nisn = '$nisn' AND kode_kelas = '1A'");
+                                        }
+
+                                        $updatecek2 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '1B'");
+                                        while ($updatefetch2 = mysqli_fetch_array($updatecek2)) {
+                                            $nisn = $updatefetch2['nisn'];
+                                            $updateKelas1B = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '2B' WHERE nisn = '$nisn' AND kode_kelas = '1B'");
+                                        }
+
+                                        $updatecek3 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '2A'");
+                                        while ($updatefetch3 = mysqli_fetch_array($updatecek3)) {
+                                            $nisn = $updatefetch3['nisn'];
+                                            $updateKelas2A = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '3A' WHERE nisn = '$nisn' AND kode_kelas = '2A'");
+                                        }
+
+                                        $updatecek4 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '2B'");
+                                        while ($updatefetch4 = mysqli_fetch_array($updatecek4)) {
+                                            $nisn = $updatefetch4['nisn'];
+                                            $updateKelas2B = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '3B' WHERE nisn = '$nisn' AND kode_kelas = '2B'");
+                                        }
+
+                                        $updatecek5 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '3A'");
+                                        while ($updatefetch5 = mysqli_fetch_array($updatecek5)) {
+                                            $nisn = $updatefetch5['nisn'];
+                                            $updateKelas3A = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '4A' WHERE nisn = '$nisn' AND kode_kelas = '3A'");
+                                        }
+
+                                        $updatecek6 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '3B'");
+                                        while ($updatefetch6 = mysqli_fetch_array($updatecek6)) {
+                                            $nisn = $updatefetch6['nisn'];
+                                            $updateKelas3B = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '4B' WHERE nisn = '$nisn' AND kode_kelas = '3B'");
+                                        }
+
+                                        $updatecek7 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '4A'");
+                                        while ($updatefetch7 = mysqli_fetch_array($updatecek7)) {
+                                            $nisn = $updatefetch7['nisn'];
+                                            $updateKelas4A = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '5A' WHERE nisn = '$nisn' AND kode_kelas = '4A'");
+                                        }
+
+                                        $updatecek8 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '4B'");
+                                        while ($updatefetch8 = mysqli_fetch_array($updatecek8)) {
+                                            $nisn = $updatefetch8['nisn'];
+                                            $updateKelas4B = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '5B' WHERE nisn = '$nisn' AND kode_kelas = '4B'");
+                                        }
+
+                                        $updatecek9 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '5A'");
+                                        while ($updatefetch9 = mysqli_fetch_array($updatecek9)) {
+                                            $nisn = $updatefetch9['nisn'];
+                                            $updateKelas5A = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '6A' WHERE nisn = '$nisn' AND kode_kelas = '5A'");
+                                        }
+
+                                        $updatecek10 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '5B'");
+                                        while ($updatefetch10 = mysqli_fetch_array($updatecek10)) {
+                                            $nisn = $updatefetch10['nisn'];
+                                            $updateKelas5B = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '6B' WHERE nisn = '$nisn' AND kode_kelas = '5B'");
+                                        }
+
+                                        $updatecek11 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '6A'");
+                                        while ($updatefetch11 = mysqli_fetch_array($updatecek11)) {
+                                            $nisn = $updatefetch11['nisn'];
+                                            $updateKelas6A = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '-' WHERE nisn = '$nisn' AND kode_kelas = '6A'");
+                                        }
+
+                                        $updatecek12 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '6B'");
+                                        while ($updatefetch12 = mysqli_fetch_array($updatecek12)) {
+                                            $nisn = $updatefetch12['nisn'];
+                                            $updateKelas6B = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '-' WHERE nisn = '$nisn' AND kode_kelas = '6B'");
+                                        }
+                                        
+                                        $query = mysqli_query($conn, "UPDATE tahun_ajaran SET tahun = '$tahun_ajaran'");
+                                        if($query) {
+                                            echo "<script>alert('Tahun Ajaran Berhasil Dirubah')</script>";
+                                            ?>
                     <meta http-equiv="refresh" content="1;url=dashboard_admin.php">
                     <?php
-                                } else {
-                                    echo "<script>alert('Gagal Mengubah Tahun Ajaran')</script>";
+                                        } else {
+                                            echo "<script>alert('Gagal Mengubah Tahun Ajaran')</script>";
+                                        }
+                                    } else {
+                                        echo "<script>alert('Gagal, Ada Wali Kelas Yang Belum Input Kenaikan Kelas')</script>";
+                                    }
                                 }
                             } else {
                                 echo "<script>alert('Kata Sandi Anda Salah')</script>";

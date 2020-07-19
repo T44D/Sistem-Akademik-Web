@@ -200,13 +200,13 @@ if (isset($_SESSION['login'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <div class="mb-0 text-gray-800"></div>
-                        <a href="hapus_wali.php?kode_walikelas=<?php echo $kode_walikelas; ?>"
+                        <a href="hapus_wali.php?kode_walikelas="
                             class="d-sm-inline-block btn btn-sm btn-danger shadow-sm"
                             onclick="return confirm('Anda Yakin Ingin Menghapus Wali Kelas?')">
                             <i class="fas fa-trash-alt fa-sm text-white-50"></i> Hapus Wali Kelas</a>
-                    </div>
+                    </div> -->
 
                     <?php 
                         $query = mysqli_query($conn, "SELECT * FROM wali_kelas WHERE kode_wali_kelas = '$kode_walikelas'");

@@ -7,12 +7,7 @@ $kodekelas = $_POST['kodekelas'];
 $result = mysqli_query($conn, "SELECT * FROM nilai_harian WHERE nisn = '$nisn' AND kode_kelas = '$kodekelas' AND semester = $semester ORDER BY kode_mata_pelajaran ASC");  
 $row = mysqli_num_rows($result);
 if ($row > 0) {
-    while($baris = mysqli_fetch_array($result)) {  
-        $kodemapel = $baris[12];
-        $mapel = mysqli_query($conn, "SELECT * FROM mata_pelajaran WHERE kode_mata_pelajaran = '$kodemapel'");
-        $getmapel = mysqli_fetch_array($mapel);
-        $nama_mapel = $getmapel['nama_mata_pelajaran'];
-        $output .= "<table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+    $head = "<table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
         <thead>
         <tr>
         <th>Mata Pelajaran</th>
@@ -29,7 +24,16 @@ if ($row > 0) {
         <th>PTS</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody>";
+    $low = "</tbody>
+        </table>";
+    $body = "";
+    while($baris = mysqli_fetch_array($result)) {  
+        $kodemapel = $baris[12];
+        $mapel = mysqli_query($conn, "SELECT * FROM mata_pelajaran WHERE kode_mata_pelajaran = '$kodemapel'");
+        $getmapel = mysqli_fetch_array($mapel);
+        $nama_mapel = $getmapel['nama_mata_pelajaran'];
+        $body .= "
         <tr>
         <th>".$nama_mapel."</th>
         <th>".$baris[1]."</th>
@@ -43,10 +47,9 @@ if ($row > 0) {
         <th>".$baris[9]."</th>
         <th>".$baris[10]."</th>
         <th>".$baris[11]."</th>
-        </tr>
-        </tbody>
-        </table>";
+        </tr>";
     }
+    $output .= $head.$body.$low;
 } else {
     $output .= "Tidak Ada Data";
 }

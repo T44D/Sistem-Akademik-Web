@@ -260,7 +260,23 @@ if (isset($_SESSION['login'])) {
                                         <?php
                       $queryTahun = mysqli_query($conn, "SELECT * FROM tahun_ajaran");
                       $ta = mysqli_fetch_array($queryTahun);
-                      echo $ta[0]." "."Semester ".$ta[1];
+                      echo $ta[0];
+                      ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 mb-4" onclick="location.href='edit_semester.php';"
+                            style="cursor: pointer;">
+                            <div class="card bg-success text-white shadow">
+                                <div class="card-body">
+                                    Semester
+                                    <div class="large">
+                                        <?php
+                      echo $ta[1];
                       ?>
                                     </div>
                                 </div>

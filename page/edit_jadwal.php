@@ -219,13 +219,13 @@ if (isset($_SESSION['login'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <div class="mb-0 text-gray-800"></div>
-                        <a href="hapus_jadwal.php?kode_jadwal=<?php echo $kode_jadwal; ?>"
+                        <a href="hapus_jadwal.php?kode_jadwal="
                             class="d-sm-inline-block btn btn-sm btn-danger shadow-sm"
                             onclick="return confirm('PERINGATAN! JIKA ANDA MENGHAPUS JADWAL MAKA SELURUH PRESENSI JADWAL INI AKAN TERHAPUS\nAnda Yakin Ingin Menghapus Jadwal?')">
                             <i class="fas fa-trash-alt fa-sm text-white-50"></i> Hapus Jadwal</a>
-                    </div>
+                    </div> -->
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

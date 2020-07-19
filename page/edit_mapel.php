@@ -201,13 +201,13 @@ if (isset($_SESSION['login'])) {
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <div class="mb-0 text-gray-800"></div>
-                        <a href="hapus_mapel.php?kode_mata_pelajaran=<?php echo $kode_mata_pelajaran; ?>"
+                        <a href="hapus_mapel.php?kode_mata_pelajaran="
                             class="d-sm-inline-block btn btn-sm btn-danger shadow-sm"
                             onclick="return confirm('PERINGATAN! JIKA ANDA MENGHAPUS MATA PELAJARAN MAKA SELURUH JADWAL MATA PELAJARAN DAN NILAI MATA PELAJARAN SISWA/I AKAN TERHAPUS\nAnda Yakin Ingin Menghapus Mata Pelajaran?')">
                             <i class="fas fa-trash-alt fa-sm text-white-50"></i> Hapus Mata Pelajaran</a>
-                    </div>
+                    </div> -->
 
                     <?php 
                         $query = mysqli_query($conn, "SELECT * FROM mata_pelajaran WHERE kode_mata_pelajaran = '$kode_mata_pelajaran'");

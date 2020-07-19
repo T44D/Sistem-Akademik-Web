@@ -39,8 +39,10 @@ $excel->setActiveSheetIndex(0)->setCellValue('A1', "Nama Lengkap");
 $excel->setActiveSheetIndex(0)->setCellValue('B1', "NISN");
 $excel->setActiveSheetIndex(0)->setCellValue('C1', "Nilai Pengetahuan");
 $excel->setActiveSheetIndex(0)->setCellValue('D1', "Predikat Nilai Pengetahuan");
-$excel->setActiveSheetIndex(0)->setCellValue('E1', "Nilai Keterampilan");
-$excel->setActiveSheetIndex(0)->setCellValue('F1', "Predikat Nilai Keterampilan");
+$excel->setActiveSheetIndex(0)->setCellValue('E1', "Deskripsi Nilai Pengetahuan");
+$excel->setActiveSheetIndex(0)->setCellValue('F1', "Nilai Keterampilan");
+$excel->setActiveSheetIndex(0)->setCellValue('G1', "Predikat Nilai Keterampilan");
+$excel->setActiveSheetIndex(0)->setCellValue('H1', "Deskripsi Nilai Keterampilan");
 
 $excel->getActiveSheet()->getStyle('A1')->applyFromArray($style_col);
 $excel->getActiveSheet()->getStyle('B1')->applyFromArray($style_col);
@@ -48,6 +50,8 @@ $excel->getActiveSheet()->getStyle('C1')->applyFromArray($style_col);
 $excel->getActiveSheet()->getStyle('D1')->applyFromArray($style_col);
 $excel->getActiveSheet()->getStyle('E1')->applyFromArray($style_col);
 $excel->getActiveSheet()->getStyle('F1')->applyFromArray($style_col);
+$excel->getActiveSheet()->getStyle('G1')->applyFromArray($style_col);
+$excel->getActiveSheet()->getStyle('H1')->applyFromArray($style_col);
 
 $kelas = $_GET['kelas'];
 $numrow = 2;
@@ -61,15 +65,19 @@ while ($data = mysqli_fetch_array($sql)) {
 	$excel->getActiveSheet()->getStyle('D'.$numrow)->applyFromArray($style_row);
 	$excel->getActiveSheet()->getStyle('E'.$numrow)->applyFromArray($style_row);
 	$excel->getActiveSheet()->getStyle('F'.$numrow)->applyFromArray($style_row);
+	$excel->getActiveSheet()->getStyle('G'.$numrow)->applyFromArray($style_row);
+	$excel->getActiveSheet()->getStyle('H'.$numrow)->applyFromArray($style_row);
 	$numrow++;
 }
 
-$excel->getActiveSheet()->getColumnDimension('A')->setWidth(30);
+$excel->getActiveSheet()->getColumnDimension('A')->setWidth(50);
 $excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
 $excel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
 $excel->getActiveSheet()->getColumnDimension('D')->setWidth(25);
-$excel->getActiveSheet()->getColumnDimension('E')->setWidth(20);
-$excel->getActiveSheet()->getColumnDimension('F')->setWidth(25);
+$excel->getActiveSheet()->getColumnDimension('E')->setWidth(50);
+$excel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
+$excel->getActiveSheet()->getColumnDimension('G')->setWidth(25);
+$excel->getActiveSheet()->getColumnDimension('H')->setWidth(50);
 
 $excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
 

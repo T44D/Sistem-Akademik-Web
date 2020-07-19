@@ -234,10 +234,10 @@ if (isset($_SESSION['login'])) {
                                         class="d-sm-inline-block btn btn-sm btn-warning shadow-sm"
                                         onclick="return confirm('Anda Yakin Ingin Mengubah Kata Sandi Akun Ini Ke Semula?')">
                                         <i class="fas fa-history fa-sm text-white-50"></i> Pulihkan Kata Sandi</a>
-                                    <a href="hapus_guru.php?nik=<?php echo $row['nik']; ?>"
+                                    <!-- <a href="hapus_guru.php?nik="
                                         class="d-sm-inline-block btn btn-sm btn-danger shadow-sm"
                                         onclick="return confirm('Anda Yakin Ingin Menghapus Guru?')">
-                                        <i class="fas fa-exclamation-triangle fa-sm text-white-50"></i> Hapus Akun</a>
+                                        <i class="fas fa-exclamation-triangle fa-sm text-white-50"></i> Hapus Akun</a> -->
                                 </div>
                             </div>
                         </div>
