@@ -38,6 +38,51 @@
             }
             return $nilai;
         }
+        function grade($nilai) {
+            $grade = "-";
+            if ($nilai >= 92 && $nilai <= 100) {
+                $grade = "A";
+            } else if ($nilai >= 84 && $nilai <= 91) {
+                $grade = "B";
+            } else if ($nilai >= 75 && $nilai <= 83) {
+                $grade = "C";
+            } else if ($nilai <= 75) {
+                $grade = "D";
+            } else {
+                $grade = "-";
+            }
+            return $grade;
+        }
+        function deskripsi_np($grade) {
+            $deskripsi = "-";
+            if ($grade == "A") {
+                $deskripsi = "Sangat baik dan sempurna. Dapat mengingat, mengetahui, menerapkan, menganalisis, dan mengevaluasi semua kompetensi dasar.";
+            } else if ($grade == "B") {
+                $deskripsi = "Baik sekali. Dapat mengingat, mengetahui, menerapkan, menganalisis sebagian besar kompetensi dasar tetapi kurang bisa mengevaluasi salah satu dari kompetensi dasar.";
+            } else if ($grade == "C") {
+                $deskripsi = "Sangat cukup. Dapat mengingat, mengetahui, menerapkan sebagian kompetensi dasar, tetapikurang bisa menganalisis dan mengevaluasi beberapa kompetensi dasar.";
+            } else if ($grade == "D") {
+                $deskripsi = "Kurang. Hanya dapat mengingat, mengetahui, menerapkan, menganalisis, dan mengeveluasi sebagian kecil kompetensi dasar.";
+            } else {
+                $deskripsi = "-";
+            }
+            return $deskripsi;
+        }
+        function deskripsi_npt($grade) {
+            $deskripsi = "-";
+            if ($grade == "A") {
+                $deskripsi = "Sangat baik dan sempurna. Sangat aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan semua soal.";
+            } else if ($grade == "B") {
+                $deskripsi = "Baik sekali. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan sebagian besar soal.";
+            } else if ($grade == "C") {
+                $deskripsi = "Sangat cukup. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita.";
+            } else if ($grade == "D") {
+                $deskripsi = "Kurang, kurang aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal.";
+            } else {
+                $deskripsi = "-";
+            }
+            return $deskripsi;
+        }
     ?>
 
 </head>
@@ -196,31 +241,9 @@ if (isset($_SESSION['login'])) {
                                         maxlength="3" name="np" value="<?php echo $row[1]; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label>Predikat Nilai Pengetahuan</label>
-                                    <input type="text" class="form-control" placeholder="Predikat Nilai Pengetahuan"
-                                        maxlength="1" name="predikat_np"
-                                        onkeyup="this.value = this.value.toUpperCase();" value="<?php echo $row[2]; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label>Deskripsi Nilai Pengetahuan</label>
-                                    <input type="text" class="form-control" placeholder="Deskripsi Nilai Pengetahuan"
-                                        maxlength="500" name="desc_np" value="<?php echo $row[3]; ?>">
-                                </div>
-                                <div class="form-group">
                                     <label>Nilai Praktek</label>
                                     <input type="number" class="form-control" placeholder="Nilai Praktek" maxlength="3"
                                         name="npt" value="<?php echo $row[4]; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label>Predikat Nilai Praktek</label>
-                                    <input type="text" class="form-control" placeholder="Predikat Nilai Praktek"
-                                        maxlength="1" name="predikat_npt"
-                                        onkeyup="this.value = this.value.toUpperCase();" value="<?php echo $row[5]; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label>Deskripsi Nilai Praktek</label>
-                                    <input type="text" class="form-control" placeholder="Deskripsi Nilai Praktek"
-                                        maxlength="500" name="desc_npt" value="<?php echo $row[6]; ?>">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary btn-user btn-block" name="input_nilai"
@@ -233,11 +256,11 @@ if (isset($_SESSION['login'])) {
                     <?php
                     if (isset($_POST['input_nilai'])) {
                         $np = antiinjection($_POST['np']);
-                        $predikat_np = antiinjection($_POST['predikat_np']);
-                        $desc_np = antiinjection($_POST['desc_np']);
+                        $predikat_np = grade($np);
+                        $desc_np = deskripsi_np($predikat_np);
                         $npt = antiinjection($_POST['npt']);
-                        $predikat_npt = antiinjection($_POST['predikat_npt']);
-                        $desc_npt = antiinjection($_POST['desc_npt']);
+                        $predikat_npt = grade($npt);
+                        $desc_npt = deskripsi_np($predikat_npt);
 
                         $np = cekNULL($np);
                         $npt = cekNULL($npt);

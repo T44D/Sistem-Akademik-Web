@@ -36,6 +36,21 @@
             }
             return $nilai;
         }
+        function grade($nilai) {
+            $grade = "-";
+            if ($nilai >= 92 && $nilai <= 100) {
+                $grade = "A";
+            } else if ($nilai >= 84 && $nilai <= 91) {
+                $grade = "B";
+            } else if ($nilai >= 75 && $nilai <= 83) {
+                $grade = "C";
+            } else if ($nilai <= 75) {
+                $grade = "D";
+            } else {
+                $grade = "-";
+            }
+            return $grade;
+        }
         function deskripsi_np($grade) {
             $deskripsi = "-";
             if ($grade == "A") {
@@ -265,9 +280,9 @@ if (isset($_SESSION['login'])) {
                         $nama = antiinjection($row['A']);
                         $nisn = antiinjection($row['B']);
                         $np = antiinjection($row['C']);
-                        $pred_np = antiinjection($row['D']);
-                        $npt = antiinjection($row['E']);
-                        $pred_npt = antiinjection($row['F']);
+                        $pred_np = grade($np);
+                        $npt = antiinjection($row['D']);
+                        $pred_npt = grade($npt);
                         if ($sheetcount > 1) {
                             $cek = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kode_kelas' AND kode_mata_pelajaran = '$kode_mapel' AND tahun = '$tahun' AND semester = '$semester'");
                             $row = mysqli_num_rows($cek);
