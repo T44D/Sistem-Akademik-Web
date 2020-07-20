@@ -196,6 +196,12 @@ if (isset($_SESSION['login'])) {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <div class="mb-0 text-gray-800"></div>
+                        <a href="import_jadwal.php" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-clipboard-list fa-sm text-white-50"></i> Import Data Jadwal</a>
+                    </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

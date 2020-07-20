@@ -159,6 +159,8 @@ if (isset($_SESSION['login'])) {
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <a href="lihat_siswa.php">
+                        <i class="fas fa-arrow-alt-circle-left fa-2x"></i></a>
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -193,12 +195,6 @@ if (isset($_SESSION['login'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <div class="mb-0 text-gray-800"></div>
-                        <a href="alumni.php" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-graduation-cap fa-sm text-white-50"></i> Alumni</a>
-                    </div>
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -219,7 +215,7 @@ if (isset($_SESSION['login'])) {
                                     </thead>
                                     <tbody>
                                         <?php 
-                        $data = mysqli_query($conn, "SELECT * FROM siswa WHERE kode_kelas <> 'AL'");
+                        $data = mysqli_query($conn, "SELECT * FROM siswa WHERE kode_kelas = 'AL'");
                         while ($baris = mysqli_fetch_array($data)) {
                           echo "<tr>";
                           echo "<th>".$baris[1]."</th>";

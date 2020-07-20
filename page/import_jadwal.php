@@ -22,10 +22,15 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this page -->
-    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-    <?php include '../connect.php'; ?>
+    <?php 
+        include '../connect.php'; 
+        require_once '../vendor/PHPExcel-1.8/Classes/PHPExcel.php';
+        function antiinjection($data){
+            include '../connect.php'; 
+            $filter_sql = mysqli_real_escape_string($conn, $data);
+            return $filter_sql;
+        }
+    ?>
 
 </head>
 
@@ -86,7 +91,7 @@ if (isset($_SESSION['login'])) {
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fas fa-list-alt"></i>
@@ -105,7 +110,7 @@ if (isset($_SESSION['login'])) {
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
                     aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fas fa-edit"></i>
@@ -159,6 +164,8 @@ if (isset($_SESSION['login'])) {
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <a href="input_jadwal.php">
+                        <i class="fas fa-arrow-alt-circle-left fa-2x"></i></a>
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -193,54 +200,72 @@ if (isset($_SESSION['login'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <div class="mb-0 text-gray-800"></div>
-                        <a href="alumni.php" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-graduation-cap fa-sm text-white-50"></i> Alumni</a>
+                        <a href="download_file_jadwal.php" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Unduh File Template</a>
                     </div>
 
-                    <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tabel Data Siswa/i</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Import Jadwal</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama</th>
-                                            <th>NISN</th>
-                                            <th>NIS</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Kelas</th>
-                                            <th>Lihat Data</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php 
-                        $data = mysqli_query($conn, "SELECT * FROM siswa WHERE kode_kelas <> 'AL'");
-                        while ($baris = mysqli_fetch_array($data)) {
-                          echo "<tr>";
-                          echo "<th>".$baris[1]."</th>";
-                          echo "<th>".$baris[0]."</th>";
-                          echo "<th>".$baris[2]."</th>";
-                          echo "<th>".$baris[3]."</th>";
-                          echo "<th>".$baris[21]."</th>";
-                          ?>
-                                        <th><a href="lihat_data_siswa.php?nisn=<?php echo $baris[0]; ?>"
-                                                class="d-sm-inline-block btn btn-sm btn-success shadow-sm">
-                                                <i class="fa fa-eye fa-sm text-white-50"></i></a></th>
-                                        <?php
-                          echo "</tr>";
-                        }
-                      ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <form class="user" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="file_import" class="custom-file-input" required>
+                                        <label class="custom-file-label">Import File Jadwal</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary btn-user btn-block" name="input_jadwal"
+                                        value="Import Data Jadwal">
+                                </div>
+                            </form>
                         </div>
                     </div>
 
+                    <?php
+if (isset($_POST['input_jadwal'])) {
+        $allowedFileType = [
+            'application/vnd.ms-excel',
+            'text/xls',
+            'text/xlsx',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        ];
+        if (in_array($_FILES['file_import']['type'], $allowedFileType)) {
+        $excelreader = new PHPExcel_Reader_Excel2007();
+        $target = basename($_FILES['file_import']['name']);
+        move_uploaded_file($_FILES['file_import']['tmp_name'], $target);
+        $loadexcel = $excelreader->load($target);
+        $sheet = $loadexcel->getActiveSheet()->toArray(null, true, true, true);
+        $sheetcount = 1;
+        foreach ($sheet as $row) {
+            $nama_hari = antiinjection($row['A']);
+            $jam_masuk = antiinjection($row['B']);
+            $jam_keluar = antiinjection($row['C']);
+            $nik_guru = antiinjection($row['D']);
+            $kode_mata_pelajaran = antiinjection($row['E']);
+            $kode_kelas = antiinjection($row['F']);
+            if($nama_hari == "" && $jam_masuk == "" && $jam_keluar == "" && $nik_guru == "" && $kode_mata_pelajaran == "" && $kode_kelas == "")
+            continue;
+            if ($sheetcount > 2) {
+                mysqli_query($conn, "INSERT INTO jadwal VALUES(NULL, '$nama_hari', '$jam_masuk', '$jam_keluar', '$nik_guru', '$kode_mata_pelajaran', '$kode_kelas')");
+            }
+            $sheetcount++;
+        }
+        unlink($_FILES['file_import']['name']);
+        
+        ?>
+                    <meta http-equiv="refresh" content="1;url=lihat_jadwal.php">
+                    <?php
+    } else {
+        echo "<script>alert('File Harus berformat Excel!')</script>";
+    }
+}
+    ?>
 
                 </div>
                 <!-- End of Content Wrapper -->
@@ -282,13 +307,6 @@ if (isset($_SESSION['login'])) {
 
             <!-- Custom scripts for all pages-->
             <script src="../js/sb-admin-2.min.js"></script>
-
-            <!-- Page level plugins -->
-            <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-            <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-            <!-- Page level custom scripts -->
-            <script src="../js/demo/datatables-demo.js"></script>
 
 </body>
 

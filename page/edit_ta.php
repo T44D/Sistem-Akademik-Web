@@ -206,7 +206,7 @@ if (isset($_SESSION['login'])) {
                         $query = mysqli_query($conn, "SELECT * FROM tahun_ajaran");
                         $ta = mysqli_fetch_array($query);
                         $tahun = $ta[0];
-                        $cek = mysqli_query($conn, "SELECT * FROM kelas ORDER BY kode_kelas ASC");
+                        $cek = mysqli_query($conn, "SELECT * FROM kelas WHERE kode_kelas <> 'AL' ORDER BY kode_kelas ASC");
                         while ($fetch = mysqli_fetch_array($cek)) {
                             $kelas = $fetch['kode_kelas'];
                             $kenaikankelas = mysqli_query($conn, "SELECT * FROM kenaikan_kelas WHERE kode_kelas = '$kelas' AND tahun = '$tahun' LIMIT 1");
@@ -376,13 +376,13 @@ if (isset($_SESSION['login'])) {
                                         $updatecek11 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '6A'");
                                         while ($updatefetch11 = mysqli_fetch_array($updatecek11)) {
                                             $nisn = $updatefetch11['nisn'];
-                                            $updateKelas6A = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '-' WHERE nisn = '$nisn' AND kode_kelas = '6A'");
+                                            $updateKelas6A = mysqli_query($conn, "UPDATE siswa SET kode_kelas = 'AL' WHERE nisn = '$nisn' AND kode_kelas = '6A'");
                                         }
 
                                         $updatecek12 = mysqli_query($conn, "SELECT nisn FROM kenaikan_kelas WHERE status = 'Naik' AND kode_kelas = '6B'");
                                         while ($updatefetch12 = mysqli_fetch_array($updatecek12)) {
                                             $nisn = $updatefetch12['nisn'];
-                                            $updateKelas6B = mysqli_query($conn, "UPDATE siswa SET kode_kelas = '-' WHERE nisn = '$nisn' AND kode_kelas = '6B'");
+                                            $updateKelas6B = mysqli_query($conn, "UPDATE siswa SET kode_kelas = 'AL' WHERE nisn = '$nisn' AND kode_kelas = '6B'");
                                         }
                                         
                                         $query = mysqli_query($conn, "UPDATE tahun_ajaran SET tahun = '$tahun_ajaran'");
