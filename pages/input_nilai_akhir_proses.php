@@ -36,6 +36,36 @@
             }
             return $nilai;
         }
+        function deskripsi_np($grade) {
+            $deskripsi = "-";
+            if ($grade == "A") {
+                $deskripsi = "Sangat baik dan sempurna. Dapat mengingat, mengetahui, menerapkan, menganalisis, dan mengevaluasi semua kompetensi dasar.";
+            } else if ($grade == "B") {
+                $deskripsi = "Baik sekali. Dapat mengingat, mengetahui, menerapkan, menganalisis sebagian besar kompetensi dasar tetapi kurang bisa mengevaluasi salah satu dari kompetensi dasar.";
+            } else if ($grade == "C") {
+                $deskripsi = "Sangat cukup. Dapat mengingat, mengetahui, menerapkan sebagian kompetensi dasar, tetapikurang bisa menganalisis dan mengevaluasi beberapa kompetensi dasar.";
+            } else if ($grade == "D") {
+                $deskripsi = "Kurang. Hanya dapat mengingat, mengetahui, menerapkan, menganalisis, dan mengeveluasi sebagian kecil kompetensi dasar.";
+            } else {
+                $deskripsi = "-";
+            }
+            return $deskripsi;
+        }
+        function deskripsi_npt($grade) {
+            $deskripsi = "-";
+            if ($grade == "A") {
+                $deskripsi = "Sangat baik dan sempurna. Sangat aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan semua soal.";
+            } else if ($grade == "B") {
+                $deskripsi = "Baik sekali. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan sebagian besar soal.";
+            } else if ($grade == "C") {
+                $deskripsi = "Sangat cukup. Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal cerita.";
+            } else if ($grade == "D") {
+                $deskripsi = "Kurang, kurang aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan soal.";
+            } else {
+                $deskripsi = "-";
+            }
+            return $deskripsi;
+        }
   ?>
 
 </head>
@@ -236,13 +266,13 @@ if (isset($_SESSION['login'])) {
                         $nisn = antiinjection($row['B']);
                         $np = antiinjection($row['C']);
                         $pred_np = antiinjection($row['D']);
-                        $desc_np = antiinjection($row['E']);
-                        $npt = antiinjection($row['F']);
-                        $pred_npt = antiinjection($row['G']);
-                        $desc_npt = antiinjection($row['H']);
+                        $npt = antiinjection($row['E']);
+                        $pred_npt = antiinjection($row['F']);
                         if ($sheetcount > 1) {
                             $cek = mysqli_query($conn, "SELECT * FROM nilai_akhir WHERE nisn = '$nisn' AND kode_kelas = '$kode_kelas' AND kode_mata_pelajaran = '$kode_mapel' AND tahun = '$tahun' AND semester = '$semester'");
                             $row = mysqli_num_rows($cek);
+                            $desc_np = deskripsi_np($pred_np);
+                            $desc_npt = deskripsi_npt($pred_npt);
                             $np = cekNULL($np);
                             $npt = cekNULL($npt);
                             if ($row > 0) continue;
